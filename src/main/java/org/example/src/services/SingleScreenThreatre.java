@@ -43,6 +43,8 @@ public class SingleScreenThreatre implements ThreatreService {
         if(movieShows.containsKey(name)) {
             movieShows.get(name).add(movieShow);
         }
+
+        System.out.println("Show added successfully");
     }
 
     @Override

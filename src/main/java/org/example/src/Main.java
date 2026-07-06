@@ -1,5 +1,7 @@
 package org.example.src;
 
+import org.example.src.Entities.Booking;
+import org.example.src.Entities.Movie;
 import org.example.src.Entities.MovieShow;
 import org.example.src.Entities.User;
 import org.example.src.services.BookingService;
@@ -21,19 +23,21 @@ public class Main {
         SingleScreenThreatre singleScreenThreatre = new SingleScreenThreatre();
 
         BookingService bookingService = new BookingService(userService, singleScreenThreatre);
-        User user = userService.registerUser("phone1","Pralove", User.Gender.MALE, "Bangalore");
+        User user = userService.registerUser("8688749458","Pralove", User.Gender.MALE, "Bangalore");
 
 //        System.out.println("name:" + user.getName() + "phone:" + user.getPhone() + "Gender:" + user.getGender() + "city:" + user.getCity());
         System.out.println(user.toString());
-//        singleScreenThreatre.registerTheatre("PVR Koramangala", "Bangalore");
-//        movieService.addMovie("Movie1", "English");
+        singleScreenThreatre.registerTheatre("PVR Koramangala", "Bangalore");
+        Movie movie =  movieService.addMovie("Movie1", "English");
+        System.out.println(movie.toString());
+
+        MovieShow.ShowSeats showSeat1 = singleScreenThreatre.addShowSeats(50, MovieShow.SeatType.GOLD, 250);
+        List<MovieShow.ShowSeats> showSeatsList = new ArrayList<>(List.of(showSeat1));
 //
-//        MovieShow.ShowSeats showSeat1 = singleScreenThreatre.addShowSeats(50, MovieShow.SeatType.GOLD, 250);
-//        List<MovieShow.ShowSeats> showSeatsList = new ArrayList<>(List.of(showSeat1));
+        singleScreenThreatre.addShow("PVR Koramangala", "Movie1", "18:00", showSeatsList);
 //
-//        singleScreenThreatre.addShow("PVR Koramangala", "Movie1", "18:00", showSeatsList);
-//
-//        bookingService.bookTicket("phone1", "PVR Koramangala", "Movie1", "18:00", 2, MovieShow.SeatType.GOLD);
+        Booking booking = bookingService.bookTicket("8688749458", "PVR Koramangala", "Movie1", "18:00", 2, MovieShow.SeatType.GOLD);
+        System.out.println(booking.toString());
 //
 //        ratingService.addRating("phone1", "Movie1", 5, "Best movie");
 //
