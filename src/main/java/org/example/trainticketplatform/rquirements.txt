@@ -1,0 +1,23 @@
+3 classes - 3ac, 2ac, sleeper
+different compartments for each class, s1, s2, s3, s4..b1, b2
+different trains in a route -
+start point and end point - middle points - vskp, vzm, pvp, delhi - you can book from any points to other points
+
+
+user journey - for now just keep general scope - tatkal scope comes next
+basic:
+1. add train
+2. add compartment of a type (Default configurations 8 seats in each comp)
+3. add seats in each compartment
+4. user search through between stations
+5. book a ticket for number of people
+
+
+entities involved
+train - id, number, list<stations>, list<compartments>
+station - string
+compartments - type, id, list<seats>, cost
+seat - id, seatNumber, configuration
+user - name, email
+bookings - id, user, toStation, fromStation, cost,
+price - price should be different between different stations.
