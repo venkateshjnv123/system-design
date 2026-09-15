@@ -1,0 +1,5 @@
+1. Implement a in memory LRU cache algorithm
+2. Implement a method to get the value of a key
+3. Implement a method to set the value of a key
+4. Implement a method to delete a key
+5. If cache is filled then remove the least recently used element
