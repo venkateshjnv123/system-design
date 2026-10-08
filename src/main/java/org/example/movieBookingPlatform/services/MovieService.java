@@ -1,6 +1,6 @@
-package org.example.src.services;
+package org.example.movieBookingPlatform.services;
 
-import org.example.src.Entities.Movie;
+import org.example.movieBookingPlatform.Entities.Movie;
 
 import java.util.concurrent.ConcurrentHashMap;
 

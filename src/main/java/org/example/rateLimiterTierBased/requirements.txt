@@ -1,0 +1,72 @@
+Design a tier-based API system for protected APIs, with different rate limits for different subscription tiers.
+
+pseudo code:
+Sliding window log algorithm:
+
+1. Pro - 10, Max - 20, free - 10
+
+RateLimiting table:
+api_name | tier | limit (per minute);
+put /opus | pro | 10
+put /opus | max | 20
+put /opus | free | 5
+put /sonnet | pro | 20
+put /sonnet | max | 50
+put /sonnet | free | 10
+
+
+userRatelimiting table:
+
+user_id | api_name | time of request:
+1 | opus | 1:03
+2 | sonnet | 1:04
+
+users:
+username, userId, tier
+
+
+rateLimitingService:
+checkRateLimit(user_id, api_name) {
+userDetails = getUserDetails(user_id);
+userTier = userDetails.getTier();
+
+rateLimit = getRateLimit(api_name, userTier);
+
+// i have to be threadsafe here
+
+lock.lock();
+or redis lock on (user_id+apiName) with a ttl of 1 minute;
+requestTillNow = fetchRequestsForUser(user_id, api_name);
+if ( requestTillNow >= rateLimit) {
+    throw new Exception("Rate limit exceeded", 429 error);
+}
+else {
+    userRatelimitingTable.put(user_id, api_name, system.currentTime.now());
+    allow request;
+}
+or redis.deleteKey(user_id+apiName);
+lock.unlock();
+}
+
+
+// we will store this in redis sorted sets for faster lookups
+fetchRequestsForUser(user_id, api_name) {
+    userRatelimitingTable.get(user_id, api_name)
+    where createdAt is between system.currrentTime.now() and system.currentTime.now() - 1 minute;
+    // delete the entries which are more than 1 minute old;
+    return count;
+}
+
+
+getRateLimit(api_name, userTier) {
+    if redis.get(api_name+userTier) return userDetails;
+    return rateLimitingTable.get(api_name, userTier);
+}
+
+getUserDetails(user_id) {
+    if redis.get(user_id) return userDetails;
+    return users.get(user_id);
+}
+
+
+

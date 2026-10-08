@@ -1,0 +1,13 @@
+addTask()
+removeTask()
+modifyTask()
+executeTask()
+
+
+Open questions:
+1. How to handle the priority - enum or int, lowert more priority or higher more priority
+2. Which function is used more add, remove? to optimize the time complexity
+3. how to handle duplicate tasks
+4. handling concurrent tasks
+5. should we need to maintain the tasks lifecycle and history
+6.

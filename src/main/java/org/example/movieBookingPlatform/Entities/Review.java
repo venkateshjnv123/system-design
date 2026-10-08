@@ -1,10 +1,12 @@
-package org.example.src.Entities;
+package org.example.movieBookingPlatform.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class Review {
     String userPhoneNumber;
     String movieName;

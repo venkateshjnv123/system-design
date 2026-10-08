@@ -1,7 +1,7 @@
-package org.example.src.services;
+package org.example.movieBookingPlatform.services;
 
-import org.example.src.Entities.MovieShow;
-import org.example.src.Entities.Theatre;
+import org.example.movieBookingPlatform.Entities.MovieShow;
+import org.example.movieBookingPlatform.Entities.Theatre;
 
 import java.util.List;
 

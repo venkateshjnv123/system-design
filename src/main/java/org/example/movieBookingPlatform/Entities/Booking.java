@@ -1,4 +1,4 @@
-package org.example.src.Entities;
+package org.example.movieBookingPlatform.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,9 +16,9 @@ public class Booking {
     private MovieShow.SeatType seatType;
     private int totalCost;
     private BookingStatus bookingStatus;
-    private Long id;
+    private Integer id;
 
-    public Booking(String phoneNumber, String theatreName, String movieName,String showTime, int noOfSeats, MovieShow.SeatType seatType, int totalCost, BookingStatus bookingStatus, Long id){
+    public Booking(String phoneNumber, String theatreName, String movieName,String showTime, int noOfSeats, MovieShow.SeatType seatType, int totalCost, BookingStatus bookingStatus, Integer id){
         this.phoneNumber = phoneNumber;
         this.theatreName = theatreName;
         this.movieName = movieName;

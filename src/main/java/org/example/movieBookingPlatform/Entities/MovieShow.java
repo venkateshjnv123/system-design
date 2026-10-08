@@ -1,12 +1,14 @@
-package org.example.src.Entities;
+package org.example.movieBookingPlatform.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Map;
 
 @Getter
 @Setter
+@ToString
 public class MovieShow {
     private String theatreName;
     private String movieName;
@@ -22,6 +24,7 @@ public class MovieShow {
 
     @Getter
     @Setter
+    @ToString
     public static class ShowSeats {
         private SeatType seatType;
         private int price;
