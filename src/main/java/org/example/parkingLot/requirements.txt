@@ -1,0 +1,15 @@
+Basic parking lot
+1. Multiple floors, multiple parking spots for each floor
+2. multiple vehicles allowed - like car, bike, truck
+3. Parking charge is different for different vehicle type
+4. parking charge is time bounded - for 4 hours (flat rate), after that each hour according to vehicle increases
+5. multiple entry gates and exit gates (concurrency)
+6. collect the payment on exit
+7. payment retry on the failure
+8. different parking spots - bike, car, truck compatible
+
+Open questions:
+1. Weather car, bike, truck are allowed to park in any spot or different spots for each vehicle?
+2. what happens if parking spot is occupied for more than certain period
+3. should i create the floors, spots on my own or is there any algorithm you gonna suggest
+4. what is payment fails?
